@@ -16,11 +16,9 @@ const Home = () => {
       <NavBar />
       <Header />
       <Category />
-      <ScrollView>
-        <View contentContainerStyle={{paddingBottom: 60}}>
-          <CategoryList />
-          <PendingList /> 
-        </View>
+      <ScrollView contentContainerStyle={{paddingBottom: 60}}>
+        <CategoryList />
+        <PendingList />
       </ScrollView>
     </View>
   );
@@ -32,8 +30,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.lightGray2,
   },
 });
-
-// import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
   return {

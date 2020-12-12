@@ -1,14 +1,112 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {View, Text, StyleSheet, Image, FlatList} from 'react-native';
 import {connect} from 'react-redux';
-import {COLORS, FONTS, SIZES} from '../constants';
+import {COLORS, FONTS, SIZES, icons} from '../constants';
 import {selectedCategoryAction} from '../store/actions/homeActions';
 
 const PendingList = ({selectedCategory}) => {
   const expenses = selectedCategory ? selectedCategory.expenses : [];
 
-  const expenseItem = () => {
-    return <View></View>;
+  const expenseItem = ({item, index}) => {
+    return (
+      <View
+        style={{
+          width: 300,
+          marginRight: SIZES.padding,
+          marginLeft: index == 0 ? SIZES.padding : 0,
+          marginVertical: SIZES.radius,
+          borderRadius: SIZES.radius,
+          backgroundColor: COLORS.white,
+          ...styles.shadow,
+        }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            padding: SIZES.padding,
+            alignItems: 'center',
+          }}>
+          <View
+            style={{
+              height: 50,
+              width: 50,
+              borderRadius: 25,
+              backgroundColor: COLORS.lightGray,
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginRight: SIZES.base,
+            }}>
+            <Image
+              source={selectedCategory.icon}
+              style={{
+                width: 30,
+                height: 30,
+                tintColor: selectedCategory.color,
+              }}
+            />
+          </View>
+          <Text style={{...FONTS.h3, color: selectedCategory.color}}>
+            {selectedCategory.name}
+          </Text>
+        </View>
+        <View style={{paddingHorizontal: SIZES.padding}}>
+          <Text style={{...FONTS.h2}}>{item.title}</Text>
+          <Text
+            style={{...FONTS.body3, flexWrap: 'wrap', color: COLORS.darkgray}}>
+            {item.description}
+          </Text>
+          <View>
+            <Text
+              style={{
+                marginTop: SIZES.padding,
+                ...FONTS.h4,
+              }}>
+              Location
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginTop: 5,
+              }}>
+              <Image
+                source={icons.pin}
+                style={{
+                  height: 20,
+                  width: 20,
+                  tintColor: COLORS.darkgray,
+                  marginRight: 5,
+                }}
+              />
+              <Text
+                style={{
+                  marginBottom: SIZES.base,
+                  color: COLORS.darkgray,
+                  ...FONTS.body4,
+                }}>
+                {item.location}
+              </Text>
+            </View>
+          </View>
+        </View>
+
+        <View
+          style={{
+            height: 50,
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderBottomStartRadius: SIZES.radius,
+            borderBottomEndRadius: SIZES.radius,
+            backgroundColor: selectedCategory.color,
+          }}>
+          <Text
+            style={{
+              color: COLORS.white,
+              ...FONTS.body3,
+            }}>
+            Confirm {item.total.toFixed(2)} USD
+          </Text>
+        </View>
+      </View>
+    );
   };
 
   return (
@@ -21,10 +119,17 @@ const PendingList = ({selectedCategory}) => {
       </View>
       <View>
         {expenses.length ? (
-          <FlatList data={expenses} data={expenses} renderItem={expenseItem} />
+          <FlatList
+            data={expenses}
+            data={expenses}
+            renderItem={expenseItem}
+            keyExtractor={(item) => item.id}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          />
         ) : (
           <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            <Text>No Record</Text>
+            <Text style={{color: COLORS.primary, ...FONTS.h3}}>No Record</Text>
           </View>
         )}
       </View>
@@ -36,6 +141,16 @@ const styles = StyleSheet.create({
   container: {
     padding: SIZES.padding,
     backgroundColor: COLORS.lightGray2,
+  },
+  shadow: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 2,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 3,
   },
 });
 
