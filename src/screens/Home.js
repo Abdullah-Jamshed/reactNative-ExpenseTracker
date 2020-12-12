@@ -8,7 +8,6 @@ import NavBar from '../components/NavBar';
 import Header from '../components/Header';
 import Category from '../components/Category';
 import CategoryList from '../components/CategoryList';
-import PendingList from '../components/PendingList';
 
 const Home = () => {
   return (
@@ -16,10 +15,7 @@ const Home = () => {
       <NavBar />
       <Header />
       <Category />
-      <ScrollView contentContainerStyle={{paddingBottom: 60}}>
-        <CategoryList />
-        <PendingList />
-      </ScrollView>
+      <CategoryList />
     </View>
   );
 };

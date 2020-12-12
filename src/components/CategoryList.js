@@ -9,11 +9,11 @@ import {
   FlatList,
   StyleSheet,
   Animated,
+  ScrollView,
 } from 'react-native';
 import {COLORS, FONTS, icons, SIZES} from '../constants';
-import { DATA } from "../Data/dummyData";
-
-
+import {DATA} from '../Data/dummyData';
+import PendingList from '../components/PendingList';
 
 const CategoryList = ({viewMode, selectedCategorySet}) => {
   const [showMoreToggle, setShowMoreToggle] = useState(false);
@@ -43,56 +43,62 @@ const CategoryList = ({viewMode, selectedCategorySet}) => {
   };
 
   return (
-    viewMode === 'list' && (
-      <View style={{paddingHorizontal: SIZES.padding - 5}}>
-        <Animated.View style={{height: categoryListHeightAnimationValue}}>
-          {/* {viewMode === 'list' &&  */}
-          <FlatList
-            data={DATA}
-            renderItem={renderComponent}
-            keyExtractor={(item) => `${item.id}`}
-            numColumns={2}
-          />
-          {/* } */}
-        </Animated.View>
+    <ScrollView contentContainerStyle={{paddingBottom: 60}}>
+      {viewMode === 'list' && (
+        <View style={{paddingHorizontal: SIZES.padding - 5}}>
+          <Animated.View style={{height: categoryListHeightAnimationValue}}>
+            {/* {viewMode === 'list' &&  */}
+            <FlatList
+              data={DATA}
+              renderItem={renderComponent}
+              keyExtractor={(item) => `${item.id}`}
+              numColumns={2}
+            />
+            {/* } */}
+          </Animated.View>
 
-        <TouchableOpacity
-          onPress={() => {
-            if (showMoreToggle) {
-              Animated.timing(categoryListHeightAnimationValue, {
-                toValue: 115,
-                duration: 300,
-                useNativeDriver: false,
-              }).start();
-            } else {
-              Animated.timing(categoryListHeightAnimationValue, {
-                toValue: 172.5,
-                duration: 300,
-                useNativeDriver: false,
-              }).start();
-            }
-            setShowMoreToggle(!showMoreToggle);
-          }}
-          style={{
-            flexDirection: 'row',
-            marginVertical: SIZES.base,
-            justifyContent: 'center',
-          }}>
-          <Text style={{...FONTS.body4}}>
-            {showMoreToggle ? 'LESS' : 'MORE'}
-          </Text>
-          <Image
-            source={showMoreToggle ? icons.up_arrow : icons.down_arrow}
-            style={{
-              width: 15,
-              height: 15,
-              marginLeft: 5,
-              alignSelf: 'center',
+          <TouchableOpacity
+            onPress={() => {
+              if (showMoreToggle) {
+                Animated.timing(categoryListHeightAnimationValue, {
+                  toValue: 115,
+                  duration: 300,
+                  useNativeDriver: false,
+                }).start();
+              } else {
+                Animated.timing(categoryListHeightAnimationValue, {
+                  toValue: 172.5,
+                  duration: 300,
+                  useNativeDriver: false,
+                }).start();
+              }
+              setShowMoreToggle(!showMoreToggle);
             }}
-          />
-        </TouchableOpacity>
-      </View>
-    )
+            style={{
+              flexDirection: 'row',
+              marginVertical: SIZES.base,
+              justifyContent: 'center',
+            }}>
+            <Text style={{...FONTS.body4}}>
+              {showMoreToggle ? 'LESS' : 'MORE'}
+            </Text>
+            <Image
+              source={showMoreToggle ? icons.up_arrow : icons.down_arrow}
+              style={{
+                width: 15,
+                height: 15,
+                marginLeft: 5,
+                alignSelf: 'center',
+              }}
+            />
+          </TouchableOpacity>
+
+          <View>
+            <PendingList />
+          </View>
+        </View>
+      )}
+    </ScrollView>
   );
 };
 
