@@ -1,4 +1,4 @@
-import {icons, appTheme, COLORS, SIZES, FONTS} from '../constants/';
+import {icons, appTheme, COLORS, SIZES, FONTS} from '../constants';
 
 const confirmStatus = 'C';
 const pendingStatus = 'P';

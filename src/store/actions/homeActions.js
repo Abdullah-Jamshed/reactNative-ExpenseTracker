@@ -4,4 +4,11 @@ const viewModeAction = (mode) => {
   };
 };
 
-export {viewModeAction};
+const selectedCategoryAction = (category) => {
+  console.log(category);
+  return (dispatch) => {
+    dispatch({type: 'SELECTED_CATEGORY', payload: {category}});
+  };
+};
+
+export {viewModeAction, selectedCategoryAction};

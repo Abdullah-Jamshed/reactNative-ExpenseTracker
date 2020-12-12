@@ -2,6 +2,7 @@ const {ActionSheetIOS} = require('react-native');
 
 const INITIAL_STATE = {
   viewMode: 'chart',
+  selectedCategory: null,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -10,6 +11,11 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         viewMode: action.payload.mode,
+      };
+    case 'SELECTED_CATEGORY':
+      return {
+        ...state,
+        selectedCategory: action.payload.category,
       };
     default:
       return state;

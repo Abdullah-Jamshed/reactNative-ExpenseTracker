@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ScrollView, SafeAreaView} from 'react-native';
 import {icons, appTheme, COLORS, SIZES, FONTS} from '../constants/';
 
 // Components
 import NavBar from '../components/NavBar';
 import Header from '../components/Header';
 import Category from '../components/Category';
-import Data from '../components/Data';
+import CategoryList from '../components/CategoryList';
+import PendingList from '../components/PendingList';
 
 const Home = () => {
   return (
@@ -15,7 +16,12 @@ const Home = () => {
       <NavBar />
       <Header />
       <Category />
-      <Data />
+      <ScrollView>
+        <View contentContainerStyle={{paddingBottom: 60}}>
+          <CategoryList />
+          <PendingList /> 
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -27,10 +33,7 @@ const styles = StyleSheet.create({
   },
 });
 
-
-
 // import {connect} from 'react-redux';
-
 
 const mapStateToProps = (state) => {
   return {
