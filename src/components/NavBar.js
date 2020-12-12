@@ -38,8 +38,8 @@ const NavBar = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: COLORS.lightGray2,
+    // flex: 1,
+    // backgroundColor: COLORS.lightGray2,
   },
   iconContainer: {
     flexDirection: 'row',
