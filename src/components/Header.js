@@ -21,8 +21,10 @@ const Header = () => {
           />
         </View>
         <View style={styles.textContainer}>
-          <Text>11 Nov 2020</Text>
-          <Text>18% More than last Month</Text>
+          <Text style={{color: COLORS.primary, ...FONTS.h3}}>11 Nov 2020</Text>
+          <Text style={{color: COLORS.darkgray, ...FONTS.h3}}>
+            18% More than last Month
+          </Text>
         </View>
       </View>
     </View>
