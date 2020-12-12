@@ -1,11 +1,14 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import {icons, appTheme, COLORS, SIZES, FONTS} from '../constants/';
 
-const Home = () => {
+// Components
+import NavBar from '../components/NavBar';
+
+const Home = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hello World From Home</Text>
+      <NavBar navigation={navigation} />
     </View>
   );
 };
@@ -13,13 +16,6 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 34,
-    // fontFamily: 'Langar-Regular',
-    fontFamily: 'Roboto-Bold',
   },
 });
 
