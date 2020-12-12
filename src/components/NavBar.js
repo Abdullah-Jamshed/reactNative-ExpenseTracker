@@ -2,8 +2,7 @@ import React from 'react';
 import {View, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import {icons, appTheme, COLORS, SIZES, FONTS} from '../constants';
 
-const NavBar = ({navigation}) => {
-  console.log(navigation);
+const NavBar = () => {
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>
