@@ -1,15 +1,7 @@
-import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  FlatList,
-  SafeAreaView,
-} from 'react-native';
+import React from 'react';
+import {View, Text, StyleSheet, Image, FlatList} from 'react-native';
 import {connect} from 'react-redux';
 import {COLORS, FONTS, SIZES, icons} from '../constants';
-import {selectedCategoryAction} from '../store/actions/homeActions';
 
 const PendingList = ({selectedCategory}) => {
   const expenses = selectedCategory ? selectedCategory.expenses : [];
@@ -163,7 +155,6 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   return {
-    // name: state.homeReducer.name,
     selectedCategory: state.homeReducer.selectedCategory,
   };
 };

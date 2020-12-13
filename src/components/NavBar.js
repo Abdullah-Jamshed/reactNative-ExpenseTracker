@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, TouchableOpacity, Image, StyleSheet} from 'react-native';
-import {icons, appTheme, COLORS, SIZES, FONTS} from '../constants';
+import {icons, COLORS, SIZES} from '../constants';
 
 const NavBar = () => {
   return (

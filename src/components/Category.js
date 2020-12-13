@@ -1,13 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
-import {icons, appTheme, COLORS, SIZES, FONTS} from '../constants';
+import {icons, COLORS, SIZES, FONTS} from '../constants';
 
 //  Redux Actions
 import {viewModeAction} from '../store/actions/homeActions';
 
 const Category = (props) => {
-  // const [view, setView] = useState('chart');
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
-import {icons, appTheme, COLORS, SIZES, FONTS} from '../constants';
+import {icons, COLORS, SIZES, FONTS} from '../constants';
 
 const Header = () => {
   return (
