@@ -8,18 +8,6 @@ const NavBar = () => {
       <View style={styles.iconContainer}>
         <TouchableOpacity
           style={styles.iconStyle}
-          onPress={() => console.log('Back')}>
-          <Image
-            source={icons.back_arrow}
-            style={{
-              width: 25,
-              height: 15,
-              tintColor: COLORS.primary,
-            }}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.iconStyle}
           onPress={() => console.log('More')}>
           <Image
             source={icons.more}
@@ -42,15 +30,14 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     flexDirection: 'row',
-    height: 60,
-    justifyContent: 'space-between',
-    // alignItems: 'flex-end',
+    height: 50,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
     paddingHorizontal: SIZES.padding,
     backgroundColor: COLORS.white,
   },
   iconStyle: {
     justifyContent: 'center',
-    width: 50,
   },
 });
 

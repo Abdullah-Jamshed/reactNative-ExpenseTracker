@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, Image, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  FlatList,
+  SafeAreaView,
+} from 'react-native';
 import {connect} from 'react-redux';
 import {COLORS, FONTS, SIZES, icons} from '../constants';
 import {selectedCategoryAction} from '../store/actions/homeActions';
@@ -12,8 +19,8 @@ const PendingList = ({selectedCategory}) => {
       <View
         style={{
           width: 300,
-          marginRight: SIZES.padding,
-          marginLeft: index == 0 ? SIZES.padding : 0,
+          marginRight: SIZES.padding - 15,
+          marginLeft: index == 0 ? SIZES.padding - 20 : 0,
           marginVertical: SIZES.radius,
           borderRadius: SIZES.radius,
           backgroundColor: COLORS.white,
@@ -123,7 +130,7 @@ const PendingList = ({selectedCategory}) => {
             data={expenses}
             data={expenses}
             renderItem={expenseItem}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => `${item.id}`}
             horizontal
             showsHorizontalScrollIndicator={false}
           />
