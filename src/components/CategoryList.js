@@ -10,16 +10,13 @@ import {
   StyleSheet,
   Animated,
   ScrollView,
-  SafeAreaView,
 } from 'react-native';
 
-import {VictoryPie, VictoryChart} from 'victory-native';
+import {VictoryPie} from 'victory-native';
 
 import {COLORS, FONTS, icons, SIZES} from '../constants';
 import {DATA} from '../Data/dummyData';
 import PendingList from '../components/PendingList';
-import {color} from 'react-native-reanimated';
-import Svg from 'react-native-svg';
 
 const CategoryList = ({viewMode, selectedCategorySet}) => {
   const [showMoreToggle, setShowMoreToggle] = useState(false);
@@ -96,10 +93,6 @@ const CategoryList = ({viewMode, selectedCategorySet}) => {
     setSelectedPie(category[0]);
   };
 
-  // useEffect(() => {
-  //   console.log(selectedPie);
-  // }, [selectedPie]);
-
   const renderItem = ({item}) => (
     <TouchableOpacity
       style={{
@@ -116,7 +109,6 @@ const CategoryList = ({viewMode, selectedCategorySet}) => {
         let categoryName = item.name;
         setSelectCategoryByName(categoryName);
       }}>
-      {/* Name/Category */}
       <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
         <View
           style={{
@@ -143,7 +135,6 @@ const CategoryList = ({viewMode, selectedCategorySet}) => {
         </Text>
       </View>
 
-      {/* Expenses */}
       <View style={{justifyContent: 'center'}}>
         <Text
           style={{
