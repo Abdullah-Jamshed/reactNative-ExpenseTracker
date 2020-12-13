@@ -4,7 +4,7 @@ import {icons, appTheme, COLORS, SIZES, FONTS} from '../constants';
 
 const NavBar = () => {
   return (
-    <View style={styles.container}>
+    <View>
       <View style={styles.iconContainer}>
         <TouchableOpacity
           style={styles.iconStyle}
@@ -24,10 +24,6 @@ const NavBar = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    // backgroundColor: COLORS.lightGray2,
-  },
   iconContainer: {
     flexDirection: 'row',
     height: 50,

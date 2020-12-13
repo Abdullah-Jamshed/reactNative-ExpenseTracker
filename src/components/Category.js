@@ -34,7 +34,6 @@ const Category = (props) => {
               height: 20,
               tintColor:
                 props.viewMode === 'chart' ? COLORS.white : COLORS.darkgray,
-              //   marginRight: SIZES.padding,
             }}
           />
         </TouchableOpacity>
