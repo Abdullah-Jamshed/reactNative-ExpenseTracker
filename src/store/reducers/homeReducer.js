@@ -17,11 +17,6 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         selectedCategory: action.payload.category,
       };
-    case 'SELECTED_TYPE':
-      return {
-        ...state,
-        type: action.payload.type,
-      };
     default:
       return state;
   }
