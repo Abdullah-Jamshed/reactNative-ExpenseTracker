@@ -7,15 +7,15 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'SELECTED_CATEGORY':
-      return {
-        ...state,
-        selectedCategory: action.payload.category,
-      };
     case 'CATEGORY_VIEW':
       return {
         ...state,
         viewMode: action.payload.mode,
+      };
+    case 'SELECTED_CATEGORY':
+      return {
+        ...state,
+        selectedCategory: action.payload.category,
       };
     default:
       return state;
