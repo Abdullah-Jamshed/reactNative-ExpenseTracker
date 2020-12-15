@@ -22,6 +22,11 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         selectedCategory: action.payload.category,
       };
+    case 'SELECTED_CATEGOR3':
+      return {
+        ...state,
+        selectedCategory: action.payload.category,
+      };
     default:
       return state;
   }
