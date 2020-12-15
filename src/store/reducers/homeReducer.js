@@ -10,11 +10,6 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         viewMode: action.payload.mode,
       };
-    case 'CATEGORY_VIEW1':
-      return {
-        ...state,
-        viewMode: action.payload.mode,
-      };
     case 'SELECTED_CATEGORY':
       return {
         ...state,
