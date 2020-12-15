@@ -1,5 +1,3 @@
-const {ActionSheetIOS} = require('react-native');
-
 const INITIAL_STATE = {
   viewMode: 'chart',
   selectedCategory: null,
