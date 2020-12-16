@@ -23,3 +23,4 @@ export default (state = INITIAL_STATE, action) => {
 var Checkdata = 'data';
 var Checkdata = 'data';
 var Checkdata = 'data';
+var Checkdata = 'data';
