@@ -24,4 +24,3 @@ var Checkdata = 'data';
 var Checkdata = 'data';
 var Checkdata = 'data';
 var Checkdata = 'data';
-var Checkdata = 'data';
