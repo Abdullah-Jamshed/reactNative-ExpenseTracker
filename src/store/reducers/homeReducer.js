@@ -19,3 +19,6 @@ export default (state = INITIAL_STATE, action) => {
       return state;
   }
 };
+
+
+var a = "A"
